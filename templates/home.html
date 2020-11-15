@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+    <header class="masthead text-center text-black">
+        <h1 class="display-4">Fighting!</h1>
+        <p class="lead">Military service takes a long time. Here's exactly how long you have left:</p>
+        <hr class="my-4"/>
+        <h1 class="jumbotron mb-2" id="countdown_timer"></h1>
+        <hr class="my-4"/>
+        <div class="container">
+            <p>떡 줄 사람은 생각도 없는데 김칫국부터 마신다</p>
+            <div class="mb-3">
+                <img class="img-fluid"
+                     src="{{ url_for('static', filename='best_friends.png') }}"
+                     align="middle" alt="Two best friends" width="30%"/>
+            </div>
+            <p>파이팅!</p>
+        </div>
+        <hr class="my-4"/>
+    </header>
+
+    <script>
+    // Manually set end date
+    var countDownDate = new Date("May 18, 2021 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="countdown_timer"
+      document.getElementById("countdown_timer").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown_timer").innerHTML = "CONGRATS! YOU'RE DONE!";
+      }
+    }, 1000);
+    </script>
+
+{% endblock %}
