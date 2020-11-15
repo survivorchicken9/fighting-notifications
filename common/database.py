@@ -19,7 +19,9 @@ class Database:
 
     @staticmethod
     def update(collection: str, query: dict, data: dict) -> None:
-        Database.DATABASE[collection].update(query, data, upsert=True)  # update or insert
+        Database.DATABASE[collection].update(
+            query, data, upsert=True
+        )  # update or insert
 
     @staticmethod
     def remove(collection: str, query: dict) -> dict:
