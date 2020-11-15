@@ -11,4 +11,4 @@ To anyone else that's here- basically just go into /templates/home.html and chan
 ## Stuff to fix
 Ideally make this thing log-in-able and customizable for many users and yeah just better.
 
-Check the pipfile for list of dependencies.
+You can check the pipfile for a list of dependencies.
